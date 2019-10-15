@@ -29,6 +29,18 @@ namespace StudentRegister
             students = new List<Student>();
             students.Add(new Student("Jack", "Nimble"));
             students.Add(new Student("Mary", "Contrary"));
+            StudentList.ItemsSource = students;
+            SelectedStudent.Content = students;
+        }
+
+        private void AddGrade(object sender, RoutedEventArgs e)
+        {
+            Random r = new Random();
+            Student stu = students[r.Next(0, students.Count)];
+            stu.CourseComplete("Random Course", 3, (Grade) r.Next(0,5), "Fall 2019");
+            //StudentList.ItemsSource = null;
+            //StudentList.ItemsSource = students;
+
         }
     }
 }
